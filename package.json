@@ -1,0 +1,25 @@
+{
+  "name": "retry-ignore-abort",
+  "version": "0.0.0",
+  "description": "retry-ignore-abort manages function calls.",
+  "contributors": [
+    {
+      "name": "Golo Roden",
+      "email": "golo.roden@thenativeweb.io"
+    }
+  ],
+  "main": "dist/retryIgnoreAbort.js",
+  "dependencies": {},
+  "devDependencies": {
+    "assertthat": "1.0.0",
+    "roboter": "1.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thenativeweb/retry-ignore-abort.git"
+  },
+  "keywords": [
+    "retry"
+  ],
+  "license": "MIT"
+}
