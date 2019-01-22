@@ -10,11 +10,11 @@
   ],
   "main": "dist/retryIgnoreAbort.js",
   "dependencies": {
-    "regenerator-runtime": "0.12.0"
+    "regenerator-runtime": "0.13.1"
   },
   "devDependencies": {
-    "assertthat": "1.0.0",
-    "roboter": "1.0.5"
+    "assertthat": "2.0.1",
+    "roboter": "3.0.4"
   },
   "repository": {
     "type": "git",
