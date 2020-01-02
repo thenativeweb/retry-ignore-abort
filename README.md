@@ -23,14 +23,34 @@ $ npm install retry-ignore-abort
 First you need to add a reference to assertthat to your application.
 
 ```javascript
-const { retryIgnoreAbort } = require('retry-ignore-abort');
+const { retry, retryIgnoreAbort } = require('retry-ignore-abort');
 ```
 
 If you use TypeScript, use the following code instead:
 
 ```typescript
-import { retryIgnoreAbort } from 'retry-ignore-abort';
+import { retry, retryIgnoreAbort } from 'retry-ignore-abort';
 ```
+
+### retry
+
+`retry` is inspired by [async-retry](https://github.com/zeit/async-retry) and has the same function signature.
+
+With it you can retry the execution of a function with exponentially increasing timeouts like so:
+
+```javascript
+const response = await retry(
+  () => {
+    return await axios('http://some-server/some-route');
+  }
+);
+```
+
+This will try to fetch `http://some-server/some-route` and retry in case of network errors.
+
+For an overview of all options and available callbacks see the [options documentation](https://github.com/tim-kos/node-retry#retryoperationoptions) of [retry](https://github.com/tim-kos/node-retry), which this is based on.
+
+### retryIgnoreAbort
 
 Then you can wrap a number of functions inside of a call to `retryIgnoreAbort`. The functions may be `async`, if needed, but synchronous functions work as well.
 
