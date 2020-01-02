@@ -6,15 +6,19 @@
     {
       "name": "Golo Roden",
       "email": "golo.roden@thenativeweb.io"
+    },
+    {
+      "name": "Hannes Leutloff",
+      "email": "hannes.leutloff@thenativeweb.io"
     }
   ],
-  "main": "dist/retryIgnoreAbort.js",
-  "dependencies": {
-    "regenerator-runtime": "0.13.1"
-  },
+  "main": "build/lib/index.js",
+  "types": "build/lib/index.d.ts",
+  "dependencies": {},
   "devDependencies": {
-    "assertthat": "2.0.1",
-    "roboter": "3.0.4"
+    "assertthat": "5.1.0",
+    "roboter": "10.1.12",
+    "semantic-release-configuration": "1.0.7"
   },
   "repository": {
     "type": "git",

@@ -1,13 +1,7 @@
-'use strict';
-
-const retryIgnoreAbort = async function (fns, onRetryIgnoreAbort) {
-  if (!fns) {
-    throw new Error('Functions are missing.');
-  }
-  if (!onRetryIgnoreAbort) {
-    throw new Error('Handler is missing.');
-  }
-
+const retryIgnoreAbort = async function (
+  fns: (() => (Promise<any> | any))[],
+  onRetryIgnoreAbort: (ex: Error) => Promise<'retry' | 'ignore' | 'abort'>
+): Promise<void> {
   for (const fn of fns) {
     let retry;
 
@@ -17,8 +11,7 @@ const retryIgnoreAbort = async function (fns, onRetryIgnoreAbort) {
       try {
         await fn();
       } catch (ex) {
-        const result = await onRetryIgnoreAbort(ex);
-        const selection = result.toLowerCase();
+        const selection = await onRetryIgnoreAbort(ex);
 
         switch (selection) {
           case 'retry': {
@@ -41,4 +34,6 @@ const retryIgnoreAbort = async function (fns, onRetryIgnoreAbort) {
   }
 };
 
-module.exports = retryIgnoreAbort;
+export {
+  retryIgnoreAbort
+};
