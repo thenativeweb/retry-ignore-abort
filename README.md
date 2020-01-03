@@ -1,6 +1,6 @@
 # retry-ignore-abort
 
-retry-ignore-abort manages function calls.
+retry-ignore-abort handles function calls and their potential failure.
 
 ## Status
 
@@ -20,7 +20,7 @@ $ npm install retry-ignore-abort
 
 ## Quick Start
 
-First you need to add a reference to `retry-ignore-abort` to your application:
+First you need to add a reference to retry-ignore-abort to your application:
 
 ```javascript
 const { retry, retryIgnoreAbort } = require('retry-ignore-abort');
@@ -32,23 +32,46 @@ If you use TypeScript, use the following code instead:
 import { retry, retryIgnoreAbort } from 'retry-ignore-abort';
 ```
 
-### retry
+### Retrying functions
 
-With it you can retry the execution of a function with exponentially increasing timeouts like so:
+Sometimes you may want to retry a function in case it fails. For that, use the `retry` function:
 
 ```javascript
-const response = await retry(
-  () => {
-    return await axios('http://some-server/some-route');
-  }
-);
+await retry(async () => {
+  // ...
+});
 ```
 
-This will try to fetch `http://some-server/some-route` and retry in case of network errors.
+By default, this performs five retries (i.e., in the worst case the function is run six times), with exponentially increasing timeouts, starting with a delay of 1 second.
 
-### retryIgnoreAbort
+If you want to adjust these values, you need to specify an options object with the following properties:
 
-Then you can wrap a number of functions inside of a call to `retryIgnoreAbort`. The functions may be `async`, if needed, but synchronous functions work as well.
+```javascript
+await retry(async () => {
+  // ...
+}, {
+  retries: 5,
+  minTimeout: 1_000,
+  maxTimeout: 60_000,
+  factor: 2
+});
+```
+
+If the retried function succeeds and returns a value, this value is returned by the `retry` function:
+
+```javascript
+const result = await retry(async () => {
+  // ...
+
+  return result;
+});
+```
+
+In case the function still fails after all retries have been exhausted, an exception is thrown that contains the exception thrown by the inner function in its `data` property.
+
+### Retrying multiple functions
+
+From time to time you have a variety of functions, that need to be run in sequence. In case one of them fails, you may want to retry it, ignore it, or abort the entire sequence. For this, use the `retryIgnoreAbort` function and hand over an array of functions to run in sequence.
 
 Additionally, you have to provide a function that is called when an exception is thrown. Again, this function may be `async`, but it does not need to be. The exception that was thrown is handed over as a parameter. Return `retry`, `ignore`, or `abort` to retry, ignore or abort the previous function call:
 
@@ -71,33 +94,6 @@ await retryIgnoreAbort(
   }
 );
 ```
-
-## Details
-
-### retry
-
-The full signature for retry is:
-
-```typescript
-const retry = <TValue> (
-  retryOperation: (retryCount: number) => Promise<TValue> | TValue,
-  options?: {
-    // The maximum amount of retries. Note that this __excludes__ the first try of the operation.
-    retries?: number = 5;
-    // The minimum amount of milliseconds between two tries.
-    minTimeout?: number = 1_000;
-    // The maximum amount of milliesconds between two tries.
-    maxTimeout?: number = 60_000;
-    // The factor with which the timeout grows exponentially.
-    factor?: number = 2;
-  }
-): Promise<TValue | undefined>;
-```
-
-Retry can throw several [defekt](https://github.com/thenativeweb/defekt) errors:
-
-- `OptionsInvalid` is thrown if the options given don't make sense.
-- `RetriesExceeded` is thrown if the operation fails more often than allowed. This error contains the last exception thrown by the operation on its `data` property.
 
 ## Running the build
 
