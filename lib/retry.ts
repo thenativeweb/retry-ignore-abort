@@ -30,7 +30,7 @@ const retry = async function <TValue>(
   };
 
   if (options.maxTimeout < options.minTimeout) {
-    throw new errors.OptionsInvalid('Max timeout must be greate than min timeout.');
+    throw new errors.OptionsInvalid('Max timeout must be greater than min timeout.');
   }
 
   let timeout = options.minTimeout;
