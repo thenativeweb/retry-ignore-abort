@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.0...2.2.1) (2020-01-03)
+
+
+### Bug Fixes
+
+* Add missing export. ([a438e9c](https://github.com/thenativeweb/retry-ignore-abort/commit/a438e9cb72e13ff473105961c3882f76bfca13fb))
+
 # [2.2.0](https://github.com/thenativeweb/retry-ignore-abort/compare/2.1.0...2.2.0) (2020-01-03)
 
 
