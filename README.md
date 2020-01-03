@@ -20,17 +20,33 @@ $ npm install retry-ignore-abort
 
 ## Quick Start
 
-First you need to add a reference to assertthat to your application.
+First you need to add a reference to `retry-ignore-abort` to your application:
 
 ```javascript
-const { retryIgnoreAbort } = require('retry-ignore-abort');
+const { retry, retryIgnoreAbort } = require('retry-ignore-abort');
 ```
 
 If you use TypeScript, use the following code instead:
 
 ```typescript
-import { retryIgnoreAbort } from 'retry-ignore-abort';
+import { retry, retryIgnoreAbort } from 'retry-ignore-abort';
 ```
+
+### retry
+
+With it you can retry the execution of a function with exponentially increasing timeouts like so:
+
+```javascript
+const response = await retry(
+  () => {
+    return await axios('http://some-server/some-route');
+  }
+);
+```
+
+This will try to fetch `http://some-server/some-route` and retry in case of network errors.
+
+### retryIgnoreAbort
 
 Then you can wrap a number of functions inside of a call to `retryIgnoreAbort`. The functions may be `async`, if needed, but synchronous functions work as well.
 
@@ -55,6 +71,33 @@ await retryIgnoreAbort(
   }
 );
 ```
+
+## Details
+
+### retry
+
+The full signature for retry is:
+
+```typescript
+const retry = <TValue> (
+  retryOperation: (retryCount: number) => Promise<TValue> | TValue,
+  options?: {
+    // The maximum amount of retries. Note that this __excludes__ the first try of the operation.
+    retries?: number = 5;
+    // The minimum amount of milliseconds between two tries.
+    minTimeout?: number = 1_000;
+    // The maximum amount of milliesconds between two tries.
+    maxTimeout?: number = 60_000;
+    // The factor with which the timeout grows exponentially.
+    factor?: number = 2;
+  }
+): Promise<TValue | undefined>;
+```
+
+Retry can throw several [defekt](https://github.com/thenativeweb/defekt) errors:
+
+- `OptionsInvalid` is thrown if the options given don't make sense.
+- `RetriesExceeded` is thrown if the operation fails more often than allowed. This error contains the last exception thrown by the operation on its `data` property.
 
 ## Running the build
 
