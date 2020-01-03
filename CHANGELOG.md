@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/thenativeweb/retry-ignore-abort/compare/2.1.0...2.2.0) (2020-01-03)
+
+
+### Features
+
+* Update documentation. ([f744cea](https://github.com/thenativeweb/retry-ignore-abort/commit/f744cea877f40e94dcae2e88e90bb301a59e2f87))
+
 # [2.1.0](https://github.com/thenativeweb/retry-ignore-abort/compare/2.0.0...2.1.0) (2020-01-03)
 
 
