@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/thenativeweb/retry-ignore-abort/compare/2.0.0...2.1.0) (2020-01-03)
+
+
+### Features
+
+* Add retry implementation inspired by async-retry. ([#2](https://github.com/thenativeweb/retry-ignore-abort/issues/2)) ([29f78d5](https://github.com/thenativeweb/retry-ignore-abort/commit/29f78d5347c48bb431b0de87528278092c984bed))
+
 # [2.0.0](https://github.com/thenativeweb/retry-ignore-abort/compare/1.0.1...2.0.0) (2020-01-02)
 
 
