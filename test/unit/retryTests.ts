@@ -18,7 +18,7 @@ suite('retry', function (): void {
         }
       );
     } catch (ex) {
-      assert.that(ex.message).is.equalTo('Max timeout must be greate than min timeout.');
+      assert.that(ex.message).is.equalTo('Max timeout must be greater than min timeout.');
       assert.that(ex.code).is.equalTo('EOPTIONSINVALID');
     }
   });
