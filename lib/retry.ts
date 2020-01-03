@@ -1,58 +1,65 @@
-import { operation, OperationOptions } from 'retry';
+import { errors } from './errors';
+import { promisify } from 'util';
+import { retryIgnoreAbort } from './retryIgnoreAbort';
 
-export interface RetryOptions extends OperationOptions {
-  randomize?: boolean;
-  onRetry?: (err: any, num: number) => Promise<void> | void;
+const sleep = promisify(setTimeout);
+
+export interface RetryOptions {
+  retries: number;
+  minTimeout: number;
+  maxTimeout: number;
+  factor: number;
 }
 
-export type RetryOperation<TValue> = (bail: (err?: any) => void, retryCount: number) => Promise<TValue> | TValue;
+export type RetryOperation<TValue> = (retryCount: number) => Promise<TValue> | TValue;
+
+const defaultRetryOptions: RetryOptions = {
+  retries: 5,
+  minTimeout: 1_000,
+  maxTimeout: 60_000,
+  factor: 2
+};
 
 const retry = async function <TValue>(
-  fn: RetryOperation<TValue>,
-  opts: RetryOptions = {}
-): Promise<TValue> {
-  return new Promise((resolve, reject): void => {
-    const op = operation(opts);
+  retryOperation: RetryOperation<TValue>,
+  optionsWithoutDefaults: Partial<RetryOptions> = defaultRetryOptions
+): Promise<TValue | undefined> {
+  const options = {
+    ...defaultRetryOptions,
+    ...optionsWithoutDefaults
+  };
 
-    const bail = (err?: any): void => {
-      reject(err ?? new Error('Aborted'));
-    };
+  if (options.maxTimeout < options.minTimeout) {
+    throw new errors.OptionsInvalid('Max timeout must be greate than min timeout.');
+  }
 
-    const onError = async (err: any, num: number): Promise<void> => {
-      if (err.bail) {
-        bail(err);
+  let timeout = options.minTimeout;
+  let currentRetry = 0;
+  let result: TValue | undefined;
 
-        return;
+  const wrappedFn = async (): Promise<TValue> => {
+    result = await retryOperation(currentRetry);
+
+    return result;
+  };
+
+  await retryIgnoreAbort(
+    [ wrappedFn ],
+    async (ex): Promise<'retry'> => {
+      currentRetry += 1;
+      if (currentRetry > options.retries) {
+        throw new errors.RetriesExceeded('Retried too many times.', { data: { ex }});
       }
 
-      const didRetry = op.retry(err);
+      await sleep(timeout);
 
-      if (!didRetry) {
-        reject(op.mainError());
+      timeout = Math.min(timeout * options.factor, options.maxTimeout);
 
-        return;
-      }
+      return 'retry';
+    }
+  );
 
-      if (opts.onRetry) {
-        await opts.onRetry(err, num);
-      }
-    };
-
-    /* eslint-disable unicorn/consistent-function-scoping */
-    // Disabled due to bug: https://github.com/sindresorhus/eslint-plugin-unicorn/issues/372
-    const runAttempt = async (num: number): Promise<void> => {
-      try {
-        const result = await fn(bail, num);
-
-        resolve(result);
-      } catch (error) {
-        await onError(error, num);
-      }
-    };
-
-    op.attempt(runAttempt);
-  });
-  /* eslint-enable unicorn/consistent-function-scoping */
+  return result;
 };
 
 export {
