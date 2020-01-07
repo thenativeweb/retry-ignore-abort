@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.1...2.2.2) (2020-01-07)
+
+
+### Bug Fixes
+
+* Fix TypeScript problem. ([#3](https://github.com/thenativeweb/retry-ignore-abort/issues/3)) ([42af1f2](https://github.com/thenativeweb/retry-ignore-abort/commit/42af1f2dfdc987fefee5ddb8d4d00f6703577146))
+
 ## [2.2.1](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.0...2.2.1) (2020-01-03)
 
 
