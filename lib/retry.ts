@@ -23,7 +23,7 @@ const defaultRetryOptions: RetryOptions = {
 const retry = async function <TValue>(
   retryOperation: RetryOperation<TValue>,
   optionsWithoutDefaults: Partial<RetryOptions> = defaultRetryOptions
-): Promise<TValue | undefined> {
+): Promise<TValue> {
   const options = {
     ...defaultRetryOptions,
     ...optionsWithoutDefaults
@@ -35,7 +35,7 @@ const retry = async function <TValue>(
 
   let timeout = options.minTimeout;
   let currentRetry = 0;
-  let result: TValue | undefined;
+  let result!: TValue;
 
   const wrappedFn = async (): Promise<TValue> => {
     result = await retryOperation(currentRetry);
