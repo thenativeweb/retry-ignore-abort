@@ -1,4 +1,5 @@
 import { assert } from 'assertthat';
+import { CustomError } from 'defekt';
 import { retry } from '../../lib/retry';
 
 const sleep = async (milliseconds: number): Promise<void> => new Promise((resolve): void => {
@@ -17,9 +18,9 @@ suite('retry', function (): void {
           maxTimeout: 1_000
         }
       );
-    } catch (ex) {
-      assert.that(ex.message).is.equalTo('Max timeout must be greater than min timeout.');
-      assert.that(ex.code).is.equalTo('EOPTIONSINVALID');
+    } catch (ex: unknown) {
+      assert.that((ex as CustomError).message).is.equalTo('Max timeout must be greater than min timeout.');
+      assert.that((ex as CustomError).code).is.equalTo('EOPTIONSINVALID');
     }
   });
 
@@ -58,9 +59,9 @@ suite('retry', function (): void {
           retries: 2
         }
       );
-    } catch (error) {
-      assert.that(error.message).is.equalTo('Retried too many times.');
-      assert.that(error.code).is.equalTo('ERETRIESEXCEEDED');
+    } catch (ex: unknown) {
+      assert.that((ex as CustomError).message).is.equalTo('Retried too many times.');
+      assert.that((ex as CustomError).code).is.equalTo('ERETRIESEXCEEDED');
       assert.that(retries).is.equalTo(3);
     }
   });

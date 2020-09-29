@@ -1,6 +1,6 @@
 const retryIgnoreAbort = async function (
   fns: (() => (Promise<any> | any))[],
-  onRetryIgnoreAbort: (ex: Error) => Promise<'retry' | 'ignore' | 'abort'>
+  onRetryIgnoreAbort: (ex: unknown) => Promise<'retry' | 'ignore' | 'abort'>
 ): Promise<void> {
   for (const fn of fns) {
     let retry;
@@ -10,7 +10,7 @@ const retryIgnoreAbort = async function (
 
       try {
         await fn();
-      } catch (ex) {
+      } catch (ex: unknown) {
         const selection = await onRetryIgnoreAbort(ex);
 
         switch (selection) {
