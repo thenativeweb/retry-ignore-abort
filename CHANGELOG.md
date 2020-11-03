@@ -1,3 +1,10 @@
+## [2.2.7](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.6...2.2.7) (2020-11-03)
+
+
+### Bug Fixes
+
+* Fix headline for robot section in readme. ([#140](https://github.com/thenativeweb/retry-ignore-abort/issues/140)) ([79d63c4](https://github.com/thenativeweb/retry-ignore-abort/commit/79d63c4b79040b63e4197474e87c5a2f0152244b))
+
 ## [2.2.6](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.5...2.2.6) (2020-10-29)
 
 
