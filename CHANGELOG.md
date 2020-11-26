@@ -1,3 +1,10 @@
+## [2.2.10](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.9...2.2.10) (2020-11-26)
+
+
+### Bug Fixes
+
+* bump defekt from 5.3.0 to 6.0.0 ([#166](https://github.com/thenativeweb/retry-ignore-abort/issues/166)) ([093393c](https://github.com/thenativeweb/retry-ignore-abort/commit/093393ce9a720d5087527deaf5fb5d41d752d2cf))
+
 ## [2.2.9](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.8...2.2.9) (2020-11-26)
 
 
