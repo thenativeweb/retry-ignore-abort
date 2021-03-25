@@ -1,3 +1,10 @@
+## [2.2.13](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.12...2.2.13) (2021-03-25)
+
+
+### Bug Fixes
+
+* update defekt ([#233](https://github.com/thenativeweb/retry-ignore-abort/issues/233)) ([67b584d](https://github.com/thenativeweb/retry-ignore-abort/commit/67b584d881a10f270211e80ff85275cb43979b5d))
+
 ## [2.2.12](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.11...2.2.12) (2021-01-27)
 
 
