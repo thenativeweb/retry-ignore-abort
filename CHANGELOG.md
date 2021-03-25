@@ -1,3 +1,10 @@
+## [2.2.14](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.13...2.2.14) (2021-03-25)
+
+
+### Bug Fixes
+
+* Migrate from master to main. ([#234](https://github.com/thenativeweb/retry-ignore-abort/issues/234)) ([9f5f9db](https://github.com/thenativeweb/retry-ignore-abort/commit/9f5f9db387aeaba5e3c724c8cca55bac15d6beed))
+
 ## [2.2.13](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.12...2.2.13) (2021-03-25)
 
 
