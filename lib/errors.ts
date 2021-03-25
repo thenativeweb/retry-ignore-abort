@@ -1,10 +1,9 @@
 import { defekt } from 'defekt';
 
-const errors = defekt({
-  OptionsInvalid: {},
-  RetriesExceeded: {}
-});
+class OptionsInvalid extends defekt({ code: 'OptionsInvalid' }) {}
+class RetriesExceeded extends defekt({ code: 'RetriesExceeded' }) {}
 
 export {
-  errors
+  OptionsInvalid,
+  RetriesExceeded
 };

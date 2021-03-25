@@ -1,6 +1,6 @@
-import { errors } from './errors';
 import { promisify } from 'util';
 import { retryIgnoreAbort } from './retryIgnoreAbort';
+import * as errors from './errors';
 
 const sleep = promisify(setTimeout);
 
@@ -48,7 +48,7 @@ const retry = async function <TValue>(
     async (ex): Promise<'retry'> => {
       currentRetry += 1;
       if (currentRetry > options.retries) {
-        throw new errors.RetriesExceeded('Retried too many times.', { data: { ex }});
+        throw new errors.RetriesExceeded({ message: 'Retried too many times.', cause: ex });
       }
 
       await sleep(timeout);
