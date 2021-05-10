@@ -1,3 +1,10 @@
+## [2.2.16](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.15...2.2.16) (2021-05-10)
+
+
+### Bug Fixes
+
+* bump hosted-git-info from 2.8.8 to 2.8.9 ([#251](https://github.com/thenativeweb/retry-ignore-abort/issues/251)) ([e78d4fa](https://github.com/thenativeweb/retry-ignore-abort/commit/e78d4fa8427c0e6682b6d1985deab7d0d7916759))
+
 ## [2.2.15](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.14...2.2.15) (2021-03-29)
 
 
