@@ -15,7 +15,7 @@
   "main": "build/lib/index.js",
   "types": "build/lib/index.d.ts",
   "dependencies": {
-    "defekt": "7.1.1"
+    "defekt": "7.1.2"
   },
   "devDependencies": {
     "assertthat": "6.0.1",
