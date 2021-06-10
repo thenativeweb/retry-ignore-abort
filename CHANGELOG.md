@@ -1,3 +1,10 @@
+## [2.2.21](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.20...2.2.21) (2021-06-10)
+
+
+### Bug Fixes
+
+* bump normalize-url from 6.0.0 to 6.0.1 ([#266](https://github.com/thenativeweb/retry-ignore-abort/issues/266)) ([490eaf5](https://github.com/thenativeweb/retry-ignore-abort/commit/490eaf5cd08c2f296263cdc7da6fd5134cdd7e41))
+
 ## [2.2.20](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.19...2.2.20) (2021-06-10)
 
 
