@@ -1,3 +1,10 @@
+## [2.2.20](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.19...2.2.20) (2021-06-10)
+
+
+### Bug Fixes
+
+* bump trim-newlines from 3.0.0 to 3.0.1 ([#267](https://github.com/thenativeweb/retry-ignore-abort/issues/267)) ([ec0b97d](https://github.com/thenativeweb/retry-ignore-abort/commit/ec0b97d3bb7604a39aa808d38758f942cb62d632))
+
 ## [2.2.19](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.18...2.2.19) (2021-05-31)
 
 
