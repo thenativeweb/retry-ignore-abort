@@ -1,3 +1,10 @@
+## [2.2.22](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.21...2.2.22) (2021-06-10)
+
+
+### Bug Fixes
+
+* bump glob-parent from 5.1.1 to 5.1.2 ([#265](https://github.com/thenativeweb/retry-ignore-abort/issues/265)) ([d4cb920](https://github.com/thenativeweb/retry-ignore-abort/commit/d4cb920aea6389bb6224d7c3d9d95102d7bd30c1))
+
 ## [2.2.21](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.20...2.2.21) (2021-06-10)
 
 

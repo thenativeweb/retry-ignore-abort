@@ -1,6 +1,6 @@
 {
   "name": "retry-ignore-abort",
-  "version": "2.2.21",
+  "version": "2.2.22",
   "description": "retry-ignore-abort handles function calls and their potential failure.",
   "contributors": [
     {
