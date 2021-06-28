@@ -1,3 +1,10 @@
+## [2.2.23](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.22...2.2.23) (2021-06-28)
+
+
+### Bug Fixes
+
+* bump defekt from 7.2.0 to 7.2.3 ([#271](https://github.com/thenativeweb/retry-ignore-abort/issues/271)) ([56f6677](https://github.com/thenativeweb/retry-ignore-abort/commit/56f6677d7cc78dc8b0e3b6521fff659961343b61))
+
 ## [2.2.22](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.21...2.2.22) (2021-06-10)
 
 
