@@ -19,7 +19,7 @@
     "node": ">= 16.7.0"
   },
   "dependencies": {
-    "defekt": "7.3.2"
+    "defekt": "7.3.3"
   },
   "devDependencies": {
     "assertthat": "6.3.13",
