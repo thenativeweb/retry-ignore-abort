@@ -15,16 +15,13 @@
   "private": false,
   "main": "build/lib/index.js",
   "types": "build/lib/index.d.ts",
-  "engines": {
-    "node": ">= 16.7.0"
-  },
   "dependencies": {
     "defekt": "7.3.3"
   },
   "devDependencies": {
     "assertthat": "6.3.13",
     "axios": "0.21.1",
-    "roboter": "12.1.1",
+    "roboter": "12.1.2",
     "semantic-release-configuration": "2.0.5"
   },
   "scripts": {},
