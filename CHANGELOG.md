@@ -1,3 +1,10 @@
+## [2.2.27](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.26...2.2.27) (2021-08-24)
+
+
+### Bug Fixes
+
+* remove engine constraint, add exclude to tsconfig.json ([#286](https://github.com/thenativeweb/retry-ignore-abort/issues/286)) ([1855c0c](https://github.com/thenativeweb/retry-ignore-abort/commit/1855c0c007c1f8afc4bb1b5cd0eb51a85966ff63))
+
 ## [2.2.26](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.25...2.2.26) (2021-07-26)
 
 
