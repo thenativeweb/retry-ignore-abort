@@ -1,3 +1,10 @@
+## [2.2.28](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.27...2.2.28) (2022-01-25)
+
+
+### Bug Fixes
+
+* bump defekt from 8.0.0 to 8.1.0 ([#305](https://github.com/thenativeweb/retry-ignore-abort/issues/305)) ([6e5eaac](https://github.com/thenativeweb/retry-ignore-abort/commit/6e5eaac8388d15528d9b81bbdb1f9236266a5aee))
+
 ## [2.2.27](https://github.com/thenativeweb/retry-ignore-abort/compare/2.2.26...2.2.27) (2021-08-24)
 
 
