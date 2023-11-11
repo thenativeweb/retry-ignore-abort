@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "assertthat": "6.5.2",
-    "axios": "1.2.0",
+    "axios": "1.6.0",
     "roboter": "13.2.1",
     "semantic-release-configuration": "2.0.7"
   },
